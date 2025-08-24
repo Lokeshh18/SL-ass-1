@@ -1,47 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Course Registration System</title>
-    <script>
-        let courses = [
-            {id: 1, name: "AI Basics", seats: 2, prereq: ""},
-            {id: 2, name: "ML Advanced", seats: 1, prereq: "AI Basics"},
-            {id: 3, name: "Data Science", seats: 3, prereq: ""}
-        ];
-
-        function registerCourse() {
-            let courseId = parseInt(document.getElementById("courseSelect").value);
-            let course = courses.find(c => c.id === courseId);
-            if(course.seats > 0) {
-                course.seats--;
-                alert(`Registered for ${course.name}. Seats left: ${course.seats}`);
-                displayCourses();
-            } else {
-                alert("Course full!");
-            }
-        }
-
-        function displayCourses() {
-            let list = document.getElementById("courseList");
-            list.innerHTML = "";
-            courses.forEach(c => {
-                list.innerHTML += `<li>${c.name} - Seats: ${c.seats} - Prereq: ${c.prereq || "None"}</li>`;
-            });
-        }
-
-        window.onload = displayCourses;
-    </script>
+  <center>
+  <h1>Course Enrollment Platform 📝</h1>
+  <hr>
+  <title>Registration</title>
+  </center>
 </head>
 <body>
-    <h2>Course Registration System</h2>
-    <ul id="courseList"></ul>
-    <select id="courseSelect">
-        <option value="1">AI Basics</option>
-        <option value="2">ML Advanced</option>
-        <option value="3">Data Science</option>
-    </select>
-    <button onclick="registerCourse()">Register</button>
+  <center>
+  <p>We are excited to welcome you to our Course Enrollment Platform! 🚀 Here, you can explore a courses designed to sharpen your skills and help to achieve your career goals. Whether you are a student, fresher, or professional, our platform offers learning opportunities to your needs. Our expert-curated courses focus on practical knowledge, industry trends, and hands-on experience to keep you ahead in your field. Enroll now to unlock your potential, enhance your domain expertise, and take confident steps toward a brighter future. Learning today builds success for tomorrow! 🌟</p>
+  </center>
+  <h3>popular courses in our platforms:</h3>
+  <ol>
+    <li>FullStack Web Development</li>
+    <li>UI/UX designer</li>
+    <li>AI Cloud Engineer</li>
+    <li>Data Analytics</li>
+  </ol>
+    <hr>
+  <center>
+    <h3>"Grab the opportunity today! 🚀 Learn in-demand skills, boost your career, and secure your future with our expert courses."</h3>
+    <div>
+      <p>Select course:</p>
+            <ul id="courseList"></ul>
+            <select id="courseSelect">
+            <option value="1">FullStack</option>
+            <option value="2">UI/UX designer</option>
+            <option value="3">AI Cloud Engineer</option>
+            <option value="4">Data Analytics</option>
+            <option value="5">Devops</option>
+            <option value="6">Web Development</option>
+            </select>
+    </div>
+    <br>
+    <button onclick="msg()">Enroll</button>
+    </center>
+  <script>
+    let courses = [
+      {id: 1, name: "FullStack", seats: 4, prereq: ""},
+      {id: 2, name: "UI/UX designer", seats: 1, prereq: ""},
+      {id: 3, name: "AI Cloud Engineer", seats: 3, prereq: ""},
+      {id: 4, name: "Data Analytics", seats: 2, prereq: ""},
+      {id: 5, name: "Devops", seats: 6, prereq: ""},
+      {id: 6, name: "Web Development", seats: 5, prereq: ""}
+      ];
+        
+    function msg() {
+      let courseId = parseInt(document.getElementById("courseSelect").value);
+      let course = courses.find(c => c.id === courseId);
+      if(course.seats > 0) {
+        course.seats--;
+        alert(`Registered for ${course.name} 👏🥳. Seats left: ${course.seats}`);
+        } else {
+        alert("Course full!");
+        }
+      }
+  </script>
 </body>
 </html>
