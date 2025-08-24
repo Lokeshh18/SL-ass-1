@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<head>
+    <title>Number Validator</title>
+    <script>
+        function val() {
+            let num = document.getElementById("number").value;
+            if(!/^\d{4}$/.test(num)) { alert("Enter exactly 4 digits!"); return; }
+            if(num[0] === '0') { alert("First digit cannot be zero!"); return; }
+            for(let i = 0; i < 3; i++) {
+                if(num[i] >= num[i+1]) { alert("Digits must be ascending!"); return; }
+            }
+            alert("Valid number!");
+        }
+    </script>
+</head>
+<body>
+  <center>
+    <h2>Four-Digit Number Validator</h2>
+    <input type="text" id="number" maxlength="4" placeholder="Enter number">
+    <button onclick="val()">Validate</button>
+  <center>
+</body>
+</html>
